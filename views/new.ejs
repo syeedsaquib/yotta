@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dz6owqlde/image/upload/v1714126156/image_1_wl9uoc.png" style="border-radius: 200px;" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Create Post(@<%= uName %>)</title>
+    <style>
+        
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+
+body.dark {
+    background:  #1d1f25;
+    color:#c7c7c7;
+    border-color: white;
+    /* background-color: #596fae; */
+} /* #9b59b6 */
+
+body.dark h1, body.dark .support a {color: #525e81;}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #3b4660;
+  width: 42.3px;
+  height: 16px;
+  border-radius: 50px;
+  border: 1px solid rgb(115, 115, 115);
+  position: relative;
+  padding: 5px;
+  margin-right: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #d5c998;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #e1e1e1;
+  width: 23.5px;
+  height: 22px;
+  position: absolute;
+  left: 2.5px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24.7px);
+}
+.searchBox {
+    /* position: absolute; */
+    display: flex;
+    width: 38%;
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    margin-top: 23px;
+    padding: 7px;
+}
+
+
+.searchButton {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    color : #d3d3d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    width: 90%;
+    padding: 0 6px;
+}
+
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            /* background: linear-gradient(90deg, #908cd3, #6c61be); */
+            background-color: #4c5b89;
+        }
+        .logo{
+            height: 100px;
+            /* width: 80px; */
+        }
+        nav{
+            display: flex;
+            font-size: 20px;
+            justify-content: space-around;
+        }
+        nav ul{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        nav div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav div img{
+            margin-left: 10px;
+            height: 50px;
+            border-radius: 70px;
+        }
+        nav div h4{
+            display: none;
+        }
+        li{
+            color: #e6e6e6;
+            padding-top: 10px;
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+        .form-container {
+            /* width: 100vw;
+            height: 100vh; */
+            margin-top: 30px;
+            margin-bottom: 20px;
+            /* background-color: #7b2cbf; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .upload-files-container {
+            background-color: #f7fff7;
+            width: 620px;
+            padding: 30px 60px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            box-shadow: rgba(48, 48, 48, 0.24) 0px 10px 20px, rgba(59, 59, 59, 0.28) 0px 6px 6px;
+        }
+        .drag-file-area {
+            border: 2px dashed #7b2cbf;
+            border-radius: 40px;
+            margin: 10px 0 15px;
+            padding: 30px 50px;
+            width: 350px;
+            text-align: center;
+        }
+        .drag-file-area .upload-icon {
+            color: rgb(58, 42, 74);
+            font-size: 50px;
+        }
+        .drag-file-area h3 {
+            font-size: 26px;
+            margin: 15px 0;
+        }
+        .drag-file-area label {
+            font-size: 19px;
+        }
+        .drag-file-area label .browse-files-text {
+            margin-top: 10px;
+            padding: 4px;
+            color: #7b2cbf;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+        .browse-files span {
+            position: relative;
+            top: -25px;
+        }
+        .default-file-input {
+            margin: 5px;
+            width: 0;
+            opacity: 0;
+        }
+        .cannot-upload-message {
+            background-color: #ffc6c4;
+            font-size: 17px;
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            padding: 5px 10px 5px 30px;
+            border-radius: 5px;
+            color: #BB0000;
+            display: none;
+        }
+        @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+        }
+        .cannot-upload-message span, .upload-button-icon {
+            padding-right: 10px;
+        }
+        .cannot-upload-message span:last-child {
+            padding-left: 20px;
+            cursor: pointer;
+        }
+        .file-block {
+            color: #f7fff7;
+            background-color: #7b2cbf;
+            transition: all 1s;
+            /* width: 390px; */
+            position: relative;
+            display: none;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0 15px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+        .file-info {
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+        }
+        .file-icon {
+            margin-right: 10px;
+        }
+        .file-name, .file-size {
+            padding: 0 3px;
+        }
+        .remove-file-icon {
+            cursor: pointer;
+        }
+        .progress-bar {
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            left: 4.5%;
+            width: 0;
+            height: 5px;
+            border-radius: 25px;
+            background-color: #4BB543;
+        }
+        .deleteicon{
+            padding-left: 10px;
+        }
+        .upload-button {
+            font-family: 'Montserrat';
+            background-color: #7b2cbf;
+            color: #f7fff7;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            border: none;
+            border-radius: 20px;
+            margin: 10px;
+            padding: 7.5px 50px;
+            cursor: pointer;
+        }
+        .login__field {
+            /* padding: 1px 0px;	 */
+            padding-top: 10px;
+            padding-bottom: 20px;
+            position: relative;	
+            display: inline-flex;
+        }
+        .svg{
+            /* z-index: 1; */
+            /* margin-bottom: -11px;
+            margin-right: -25px; */
+            padding-top: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .login__input {
+            border: none;
+            border-bottom: 2px solid #D1D1D4;
+            background: none;
+            padding: 10px;
+            margin-left: 19px;
+            padding-left: 10px;
+            font-weight: 700;
+            width: 75%;
+            transition: .2s;
+        }
+
+        .login__input:active,
+        .login__input:focus,
+        .login__input:hover {
+            outline: none;
+            border-bottom-color: #6A679E;
+        }
+        #Username{
+            display: inline-block;
+            /* z-index: 1; */
+            font-size: 25px;
+            font-weight: bolder;
+            /* margin-bottom: 50px; */
+            font-family: sans-serif;
+            color:#5C5696 ;
+            text-align: center;
+        }
+        textarea{
+            border-radius: 10px;
+            background: linear-gradient(90deg, #b3affd, #aca3ff);
+            color: #e6e6e6;
+            font-size: 17px;
+            line-height: 20px;
+            text-align: justify;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            font-family: sans-serif;
+            border: none;
+            outline: none;
+            padding: 20px;
+            padding-top: 15px;
+        }
+        .login__submit {
+            background: #fff;
+            font-size: 14px;
+            margin-top: 30px;
+            padding: 16px 20px;
+            border-radius: 26px;
+            border: 1px solid #D4D3E8;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            width: 200px;
+            color: #4C489D;
+            box-shadow: 0px 2px 2px #5C5696;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        
+        @media (min-width:320px) and (max-width:480px){
+            .searchInput {
+                font-size: 13px;
+            }
+
+            .form {
+                margin-right: 10px;
+                display: inline-block;
+                flex-direction: row;
+                width: fit-content;
+                background-color: none;
+            }
+            .searchButton {
+                float: right;
+                width: 34px;
+                height: 29px;
+                border-radius: 50%;
+                background: #2f3640;
+                color: #d3d3d3;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: -4px;
+                margin-right: -4px;
+            }
+            .searchBox {
+                /* position: absolute; */
+                display: flex;
+                width: 45%;
+                background: #2f3640;
+                height: 20px;
+                border-radius: 40px;
+                margin-top: 18px;
+                padding: 8px;
+            }
+            hr {
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            nav {
+                /* padding: 10px; */
+                display: flex;
+                font-size: 20px;
+                justify-content: space-between;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            header img {
+                height: 110px;
+                width: 31.9%;
+                margin: 0px 0px 0px 0px
+            }
+            section img{
+                height: 100px;
+                width: 100px;
+            }
+            header{
+                margin: 5%;
+            }
+            section{
+                margin-top: 10px;
+            }
+            .logo{
+                height: 70px;
+            }
+            nav div h4 {
+                color: white;
+                padding-left: 0px;
+                font-size: 11px;
+                font-weight: lighter;
+            }
+            nav div img {
+                height: 30px;
+                margin-left: 1px;
+            }
+            nav div h4{
+                display: none;
+            }
+            .createpostsvg{
+                height: 30px;
+                width: 30px;
+            }
+            .createpostsvg path{
+                fill: #dcdcdc;
+            }
+            .fa-sun {
+                font-size: 12px;
+            }
+            .fa-moon{
+                font-size: 12px;
+            }
+            .checkbox-label .ball {
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                left: 2.5px;
+                top: 2px;
+                
+            }
+            .checkbox-label {
+                width: 28px;
+                height: 9px;
+            }
+            .checkbox:checked + .checkbox-label .ball {
+                transform: translateX(18px);
+            }
+            form{
+                margin-right: 10px;
+            }
+            .upload-files-container{
+                width: 400px;
+                display: flex;
+                margin-left: 10px;
+                padding: 15px 30px;
+            }
+            textarea{
+                width: 250px;
+                height: 70px;
+            }
+            .drag-file-area {
+                border: 2px dashed #7b2cbf;
+                border-radius: 30px;
+                margin: 10px 0 15px;
+                padding: 10px 20px;
+                width: 280px;
+                height: 120px;
+                text-align: center;
+            }
+            .drag-file-area h3{
+                font-size: 20px;
+            }
+            .login__submit{
+                margin-top: 10px;
+            }
+            .login__field {
+                /* padding: 1px 0px; */
+                padding-top: 5px;
+                padding-bottom: 10px;
+                position: relative;
+                display: inline-flex;
+            }
+                        
+        }
+
+    </style>
+
+</head>
+<body>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <nav>
+        <img class="logo" src="https://res.cloudinary.com/dz6owqlde/image/upload/v1713868597/Gemini_Generated_Image_s94xq0s94xq0s94x-removebg-preview_nowfji.png" alt="logo">
+        <form class="searchBox" action="/search"  method="post">
+            
+            <input class="searchInput" type="text" name="uName" placeholder="Search">
+          
+            <button type="submit" class="searchButton" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            </button>
+        </form>
+        <div>
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <span class="ball"></span>
+                </label>
+    
+            <img src=<%= profile_picture %> alt="">
+            <h4><%= uName %></h4>
+        </div>
+        
+    </nav>
+    <form class="form-container" action="/<%= uName %>/post" method="post" enctype="multipart/form-data">
+        <div class="upload-files-container">
+            <div class="login__field">
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="27px" height="27px" data-name="Layer 1" viewBox="0 0 128 160" x="0px" y="0px"><title>Miscellaneous 253 solid</title><path fill="#5C5696" d="M108.39789,12.96527A58.24,58.24,0,0,0,71.272,0,80.07942,80.07942,0,0,0,51.20752,2.73389a65.58016,65.58016,0,0,0-37.3349,25.54828A70.43753,70.43753,0,0,0,1.06641,72.60938c.85205,20.71869,9.73486,36.31641,26.40192,46.35944A62.45147,62.45147,0,0,0,60.15479,128h.00293a90.345,90.345,0,0,0,28.14307-4.92383,6.77154,6.77154,0,0,0,4.2915-3.55078,8.34415,8.34415,0,0,0-.26221-6.71832c-.419-1.01947-1.69238-4.122-5.41309-4.122a11.3098,11.3098,0,0,0-3.60742.70892,64.63143,64.63143,0,0,1-22.96338,3.33063c-19.8233-.67242-34.59418-11.4834-39.5127-28.91992A56.5322,56.5322,0,0,1,25.1499,40.94476a48.95627,48.95627,0,0,1,43.624-26.10736A49.63414,49.63414,0,0,1,86.123,17.9624c16.94684,6.29926,26.22473,23.64648,23.08649,43.16547-1.77295,11.02844-5.86328,17.5376-12.87109,20.48541-1.83685.7724-3.07806.79779-3.88428-.14258-1.64362-1.91895-1.71533-7.02441-1.05811-11.2334.63531-4.064,1.36572-8.19293,2.07281-12.186.9873-5.5791,2.00781-11.34766,2.79291-17.07471A6.53568,6.53568,0,0,0,94.771,35.84717c-4.14648-5.0752-15.74017-6.20361-19.19427-6.42828-.98834-.06439-1.98834-.09711-2.97223-.09711a43.21626,43.21626,0,0,0-31.52,13.36371A42.24879,42.24879,0,0,0,29.311,74.043c.48444,11.0459,5.54541,19.18359,13.88531,22.3266a22.70624,22.70624,0,0,0,8.03711,1.40631,29.72871,29.72871,0,0,0,18.708-6.9292,39.60109,39.60109,0,0,0,4.249-4.4151c3.26416,7.86279,8.37885,11.41309,16.2486,11.41309a34.172,34.172,0,0,0,6.21088-.62689,33.54658,33.54658,0,0,0,22.60162-15.08838C129.97021,65.92426,132.27338,31.97021,108.39789,12.96527ZM59.87842,76.65967A9.75686,9.75686,0,0,1,55.647,77.71289c-3.90765,0-6.44336-2.8775-6.459-7.33063-.03076-8.7998,6.79053-21.92865,19.20459-22.64935.54694-.03174,1.07813-.05133,1.6098-.05133a19.13921,19.13921,0,0,1,5.45612.7998c-.50238,1.52643-.98578,3.0249-1.46143,4.49957-1.49756,4.64691-2.91309,9.03564-4.6236,13.27972A19.22823,19.22823,0,0,1,59.87842,76.65967Z"/></svg>
+
+                <span id="Username"><%= uName %></span>
+            </div>
+        
+
+            <label for="image" style="cursor: pointer;">
+            <div class="drag-file-area">
+                <span class="material-icons-outlined upload-icon"> file_upload </span>
+                <h3 class="dynamic-message" style="color: #5C5696;"> Drag & drop any file here </h3>
+                <label class="label"><span class="browse-files"> <input id="image" type="file"name="image" class="default-file-input" required>  </label>
+            </div></label>
+
+            <span class="cannot-upload-message"> <span class="material-icons-outlined">error</span> Please select a file first <span class="material-icons-outlined cancel-alert-button">cancel</span> </span>
+            <div class="file-block">
+                <div class="file-info"> <span class="material-icons-outlined file-icon">description</span> <span class="file-name"> </span> | <span class="file-size">  </span> </div>
+                <span class="material-icons remove-file-icon deleteicon">delete</span>
+                <div class="progress-bar"> </div>
+            </div>
+            <button type="button" class="upload-button" style="display: none;"> Upload </button>
+            <textarea name="postDescription" cols="50" rows="5" placeholder="Post description" maxlength="70"></textarea>
+            <input type="text" name="uName" style="display: none;" value="<%= uName %>">
+            <button class="button login__submit" type="submit">
+                <span class="button__text">Post &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#5C5696" width="30px" height="30px" viewBox="-64 0 512 512"><path d="M365.52 209.85L59.22 67.01c-16.06-7.49-35.15-.54-42.64 15.52L3.01 111.61c-7.49 16.06-.54 35.15 15.52 42.64L236.96 256.1 18.49 357.99C2.47 365.46-4.46 384.5 3.01 400.52l13.52 29C24 445.54 43.04 452.47 59.06 445l306.47-142.91a32.003 32.003 0 0 0 18.48-29v-34.23c-.01-12.45-7.21-23.76-18.49-29.01z"/></svg>
+            </button>	
+        </div>
+
+        
+    </form>
+
+
+
+    <script>
+        var isAdvancedUpload = function() {
+  var div = document.createElement('div');
+  return (('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)) && 'FormData' in window && 'FileReader' in window;
+}();
+
+let draggableFileArea = document.querySelector(".drag-file-area");
+let browseFileText = document.querySelector(".browse-files");
+let uploadIcon = document.querySelector(".upload-icon");
+let dragDropText = document.querySelector(".dynamic-message");
+let fileInput = document.querySelector(".default-file-input");
+let cannotUploadMessage = document.querySelector(".cannot-upload-message");
+let cancelAlertButton = document.querySelector(".cancel-alert-button");
+let uploadedFile = document.querySelector(".file-block");
+let fileName = document.querySelector(".file-name");
+let fileSize = document.querySelector(".file-size");
+let progressBar = document.querySelector(".progress-bar");
+let removeFileButton = document.querySelector(".remove-file-icon");
+let uploadButton = document.querySelector(".upload-button");
+let fileFlag = 0;
+
+fileInput.addEventListener("click", () => {
+	fileInput.value = '';
+	console.log(fileInput.value);
+});
+
+fileInput.addEventListener("change", e => {
+	uploadIcon.innerHTML = 'check_circle';
+	dragDropText.innerHTML = 'File Dropped Successfully!';
+	fileName.innerHTML = fileInput.files[0].name.substring(0,20) + " ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	fileSize.innerHTML = "&nbsp;"+(fileInput.files[0].size/1024).toFixed(1) + " KB";
+	uploadedFile.style.cssText = "display: flex;";
+});
+
+
+
+
+cancelAlertButton.addEventListener("click", () => {
+	cannotUploadMessage.style.cssText = "display: none;";
+});
+
+if(isAdvancedUpload) {
+	["drag", "dragstart", "dragend", "dragover", "dragenter", "dragleave", "drop"].forEach( evt => 
+		draggableFileArea.addEventListener(evt, e => {
+			e.preventDefault();
+			e.stopPropagation();
+		})
+	);
+
+	["dragover", "dragenter"].forEach( evt => {
+		draggableFileArea.addEventListener(evt, e => {
+			e.preventDefault();
+			e.stopPropagation();
+			uploadIcon.innerHTML = 'file_download';
+			dragDropText.innerHTML = 'Drop your file here!';
+		});
+	});
+
+	draggableFileArea.addEventListener("drop", e => {
+		uploadIcon.innerHTML = 'check_circle';
+		dragDropText.innerHTML = 'File Dropped Successfully!';
+		document.querySelector(".label").innerHTML = ` <span class="browse-files"> <input type="file" class="default-file-input" style="display:none;"/></span>`;
+		uploadButton.innerHTML = `Upload`;
+		
+		let files = e.dataTransfer.files;
+		fileInput.files = files;
+		console.log(files[0].name + " " + files[0].size);
+		console.log(document.querySelector(".default-file-input").value);
+        fileName.innerHTML = fileInput.files[0].name.substring(0,20) + " ...&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+	    fileSize.innerHTML = "&nbsp;"+(fileInput.files[0].size/1024).toFixed(1) + " KB";
+		uploadedFile.style.cssText = "display: flex;";
+		progressBar.style.width = 0;
+		fileFlag = 0;
+	});
+}
+
+removeFileButton.addEventListener("click", () => {
+	uploadedFile.style.cssText = "display: none;";
+	fileInput.value = '';
+	uploadIcon.innerHTML = 'file_upload';
+	dragDropText.innerHTML = 'Drag & drop any file here';
+	uploadButton.innerHTML = `Upload`;
+});
+const checkbox = document.getElementById("checkbox")
+        checkbox.addEventListener("change", () => {
+          document.body.classList.toggle("dark")
+        })
+    </script>
+</body>
+</html>

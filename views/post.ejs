@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dz6owqlde/image/upload/v1714126156/image_1_wl9uoc.png" style="border-radius: 200px;" type="image/x-icon">
+
+    <title>Posts(@<%= uName  %>)</title>
+    <style>
+        body {
+    background-image: linear-gradient(to right , #cb2d3e , #ef473a);
+}
+
+.searchBox {
+    /* position: absolute; */
+    width: 40%;
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    margin-top: 23px;
+    padding: 7px;
+}
+
+
+.searchButton {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    color : #d3d3d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    width: 90%;
+    padding: 0 6px;
+
+}
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+}
+}
+
+
+
+        
+body.dark {
+    background: #4c5b89;
+    
+    /* background-color: #596fae; */
+} /* #9b59b6 */
+
+body.dark h1, body.dark .support a {color: #525e81;}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #3b4660;
+  width: 42px;
+  height: 16px;
+  border-radius: 50px;
+  border: 1px solid rgb(115, 115, 115);
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {color: #d5c998;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #e1e1e1;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2.5px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+
+
+
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background: #272727;
+            color: rgb(205, 205, 205);
+            font-family: sans-serif;
+        }
+        .logo{
+            height: 100px;
+            padding-left: 33px;
+            padding-right: 33px;
+            /* width: 80px; */
+        }
+        nav{
+            /* padding: 10px; */
+            display: flex;
+            font-size: 20px;
+            justify-content: space-around;
+            margin-bottom: 50px;
+        }
+        nav ul{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav h2{
+            font-family: cursive,sans-serif;
+            filter: drop-shadow(1px 1px 5px rgb(154, 154, 154));
+        }
+        nav div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav div img{
+            height: 50px;
+            border-radius: 70px;
+            margin-left: 20px;
+        }
+        nav div h4{
+            color: white;
+            padding-left: 13px;
+            font-size: 20px;
+        }
+        li{
+            padding-top: 10px;
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+        
+        .image{
+            display: flex;
+            margin: 0 auto;
+        }
+        .post{
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            width: fit-content;
+            padding: 0%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            /* border: 5px solid rgb(88, 71, 71); */
+            border-radius: 10px;
+        }
+        .post .imgand{
+            height: 70px;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+        }
+        section .post div img{
+            display: inline;
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            /* margin-left: 27px; */
+        }
+        .imgand img{
+            margin-left: 6px;
+            
+        }
+        section .post .image img{
+            height: auto;
+            width: 430px;
+            border: 1px solid #1d1d1d;
+            box-shadow: 1px 1px 40px rgb(59,59,59);
+            border-radius: 5px;
+
+        }
+        h4{
+            color: rgb(178, 178, 178);
+            display: inline;
+        }
+        .description{
+            display: flex;
+            flex-direction: column;
+            width: 420px;
+            text-align: justify;
+            font-weight:lighter;
+            font-size: 13px;
+            color: #ededed;
+            margin-bottom: 10px;
+            padding-left: 1px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            padding-right: 10px;
+        
+        }
+        .likes{
+            display: flex;
+            flex-direction: column;
+            /* text-align: center; */
+            /* align-items: center; */
+        }
+        .likes span{
+            padding-top: 4px;
+            padding-left: 2px;
+            font-size: 15px;
+        }
+        .likes p{
+            font-size: 15px;
+            display: inline-flex;
+        }
+        .likes div{
+            display: flex;
+            /* justify-content: space-between; */
+        }
+        .likes div svg{
+            margin-right: 8px;
+        }
+        .postDescription{
+            padding-top: 3px;
+            color: #b9b9b9;
+            padding-left: 2px;
+        }
+        
+
+
+        
+
+         @media (min-width:320px) and (max-width:680px){
+            nav ul{
+                display: none;
+            }
+            nav{
+                justify-content: space-between;
+                margin-left: 10px;
+                margin-right: 15px;
+            }
+            section .post .image img {
+                height: auto;
+                width: 380px;
+                border-radius: 5px;
+            }
+            .logo{
+                height: 70px;
+                padding: 0;
+            }
+            .checkbox-label {
+                width: 28px;
+                height: 10px;
+                margin-right: 8px;
+            }
+            .checkbox-label .ball {
+                background-color: #e1e1e1;
+                width: 17px;
+                height: 17px;
+                position: absolute;
+                left: 2.0px;
+                top: 1px;
+                border-radius: 50%;
+                transition: transform 0.2s linear;
+            }
+            .checkbox:checked + .checkbox-label .ball {
+                transform: translateX(17px);
+            }
+            .fa-sun{
+                font-size: 12px;
+            }
+            .fa-moon{
+                font-size: 12px;
+            }
+            nav div img {
+                height: 35px;
+                margin-left: 10px;
+            }
+            nav div h4 {
+                color: white;
+                padding-left: 5px;
+                font-weight: lighter;
+                font-size: 15px;
+            }
+            .description{
+                width: 380px;
+            }
+            nav div h4{
+                display: none;
+            }
+            .searchButton{
+                width: 35px;
+                height: 32px;
+            }
+            .searchBox{
+                height: 28px;
+                width: 50%;
+                margin-top: 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="https://res.cloudinary.com/dz6owqlde/image/upload/v1713868597/Gemini_Generated_Image_s94xq0s94xq0s94x-removebg-preview_nowfji.png" alt="logo">
+        <div class="searchBox">
+            <input class="searchInput"type="text" name="" placeholder="Search">
+          
+            <button class="searchButton" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            </button>
+            <div class="popular"></div>
+        </div>
+        <div>
+            <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                    <span class="ball"></span>
+                </label>
+            <img src=<%= profile_picture %> alt="">
+            <h4><%= uName %></h4>
+        </div>
+        
+    </nav>
+    <section>
+        <% for(let i=p.length-1;i>=0;i--){ %>
+    
+        <div id=<%= p[i]._id %> class="post">
+            <div class="imgand">
+                <img src=<%= profile_picture %> alt=""><h4>&nbsp;&nbsp;<%= uName %></h4>
+            </div>
+            <div class="image">
+                <img src=<%= p[i].postUrl %> alt="">
+            </div>
+            <div class="description">
+                <div class="likes">
+                    <div>
+                        <a href=<%= p[i].postUrl %> download><svg xmlns="http://www.w3.org/2000/svg" width="35px" height="35px"  viewBox="0 0 24 24" fill="none">
+                            <path d="M3 15C3 17.8284 3 19.2426 3.87868 20.1213C4.75736 21 6.17157 21 9 21H15C17.8284 21 19.2426 21 20.1213 20.1213C21 19.2426 21 17.8284 21 15" stroke="#d1d1d1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 3V16M12 16L16 11.625M12 16L8 11.625" stroke="#d1d1d1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg></a>
+                    </div>
+                </div>
+                <div class="postDescription"><b>Description :- </b> <%= p[i].postDescription %></div>
+            </div>
+            <div style="height: 3px;background-color: black;border-radius: 50%;"></div>
+        </div>
+        <% } %>
+    </section>
+    
+    <script>
+        const checkbox = document.getElementById("checkbox")
+        checkbox.addEventListener("change", () => {
+          document.body.classList.toggle("dark")
+        })
+        
+    </script>
+</body>
+</html>

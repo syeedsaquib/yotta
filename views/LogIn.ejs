@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dz6owqlde/image/upload/v1714126156/image_1_wl9uoc.png" style="border-radius: 200px;" type="image/x-icon">
+
+    <title>Yotta(Login)</title>
+    <style>
+
+.searchBox {
+    /* position: absolute; */
+    display: flex;
+    width: 40%;
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    margin-top: 23px;
+    padding: 7px;
+}
+
+
+.searchButton {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    color : #d3d3d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    width: 90%;
+    padding: 0 6px;
+}
+
+
+@media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+}
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+
+body.dark {
+    background: linear-gradient(90deg,#3a3a3a, #2c2c2c);	
+
+} /* #9b59b6 */
+
+body.dark h1, body.dark .support a {color: #525e81;}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #3b4660;
+  width: 41.7px;
+    height: 16px;
+  border-radius: 50px;
+  border: 1px solid rgb(115, 115, 115);
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa-moon {
+    font-size: 18px;
+    color: #d5c998;}
+
+.fa-sun {
+    font-size: 18px;
+    color: #f39c12;}
+
+.checkbox-label .ball {
+  background-color: #e1e1e1;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2.4px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(25px);
+}
+        
+
+        nav{
+            /* padding: 10px; */
+            margin-bottom: 15px;
+            display: flex;
+            font-size: 20px;
+            height: 100px;
+            justify-content: space-between;
+            margin-left: 25px;
+            margin-right: 60px;
+        }
+        .logo{
+            height: 100px;
+            /* width: 80px; */
+        }
+        
+        nav h2{
+            font-family: cursive,sans-serif;
+            filter: drop-shadow(1px 1px 5px rgb(154, 154, 154));
+        }
+        nav div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav div h4{
+            color: white;
+            padding-left: 8px;
+            font-size: 20px;
+        }
+
+
+
+
+        
+        * {
+            margin: 0;
+            padding: 0;	
+            font-family: sans-serif;
+        }
+        
+        body {
+            /* background: linear-gradient(90deg, #C7C5F4, #776BCC);		 */
+            background: linear-gradient(90deg, #5e6781, #4c5b89);
+            /* margin-top: 50px; */
+            /* background: #1d1f25; */
+            color: rgb(198, 198, 198);
+            transition: background 0.2s linear;
+            font-family: sans-serif;
+            
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screen {		
+            background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+            position: relative;	
+            height: 600px;
+            width: 360px;	
+            box-shadow: 0px 0px 24px #5C5696;
+        }
+
+        .screen__content {
+            z-index: 1;
+            position: relative;	
+        }
+
+        .screen__background {		
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            -webkit-clip-path: inset(0 0 0 0);
+            clip-path: inset(0 0 0 0);	
+        }
+
+        .screen__background__shape {
+            transform: rotate(45deg);
+            position: absolute;
+        }
+
+        .screen__background__shape1 {
+            height: 520px;
+            width: 520px;
+            background: #fcfcfc;	
+            top: -50px;
+            right: 120px;	
+            border-radius: 0 72px 0 0;
+        }
+
+        .screen__background__shape2 {
+            height: 220px;
+            width: 220px;
+            background: #6C63AC;	
+            top: -172px;
+            right: 0;	
+            border-radius: 32px;
+        }
+
+        .screen__background__shape3 {
+            height: 540px;
+            width: 190px;
+            background: linear-gradient(270deg, #5D54A4, #6A679E);
+            top: -24px;
+            right: 0;	
+            border-radius: 32px;
+        }
+
+        .screen__background__shape4 {
+            height: 400px;
+            width: 200px;
+            background: #7E7BB9;	
+            top: 420px;
+            right: 50px;	
+            border-radius: 60px;
+        }
+
+        .login {
+            padding: 30px;
+            padding-top: 156px;
+        }
+
+        .login__field {
+            padding: 20px 0px;	
+            position: relative;	
+            width: max-content;
+        }
+
+        .login__icon {
+            position: absolute;
+            top: 30px;
+            color: #7875B5;
+        }
+
+        .login__input {
+            border: none;
+            border-bottom: 2px solid #D1D1D4;
+            background: none;
+            padding: 10px;
+            margin-left: 19px;
+            padding-left: 10px;
+            font-weight: 700;
+            width: 75%;
+            transition: .2s;
+        }
+
+        .login__input:active,
+        .login__input:focus,
+        .login__input:hover {
+            outline: none;
+            border-bottom-color: #6A679E;
+        }
+
+        .login__submit {
+            background: #fff;
+            font-size: 14px;
+            margin-top: 30px;
+            padding: 16px 20px;
+            border-radius: 26px;
+            border: 1px solid #D4D3E8;
+            text-transform: uppercase;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            color: #4C489D;
+            box-shadow: 0px 2px 2px #5C5696;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .login__submit:active,
+        .login__submit:focus,
+        .login__submit:hover {
+            border-color: #6A679E;
+            outline: none;
+        }
+
+        .button__icon {
+            font-size: 24px;
+            margin-left: auto;
+            color: #7875B5;
+        }
+
+        .svg{
+            z-index: 1;
+            margin-bottom: -11px;
+            margin-right: -25px;
+        }
+       
+
+        h1{
+            color: #4C489D;
+            margin-top: -80px;
+            margin-bottom: 40px;
+            font-size: 40px;
+        }
+        #butt{
+            background-color: #7670e8;
+            color: #fff;
+            padding: 8px 15px 8px 15px;
+            border: 2px solid #5e58af;
+            border-radius: 10px;
+            margin-left: 35px;
+            margin-top: -10px;
+            font-size: 16px;
+            transition: .2s ease-in-out;
+        }
+        #butt:hover{
+            cursor: pointer;
+            background-color: #7f6efe;
+            border-color: #7d79c6;
+            box-shadow: 1px 1px 10px rgb(101, 41, 173);
+        }
+        #show_eye{
+            cursor: pointer;
+            margin: 0;
+            margin-left: -25px;
+            margin-bottom: -7px;
+        }
+        #hide_eye{
+            cursor: pointer;
+            margin: 0;
+            margin-left: -25px;
+            margin-bottom: -7px;
+        }
+        @media (min-width:320px) and (max-width:520px){
+            html{
+                display: flex;
+                flex-direction: column;
+                width: 200%;
+            }
+            .searchBox{
+                width: 60%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="https://res.cloudinary.com/dz6owqlde/image/upload/v1713868597/Gemini_Generated_Image_s94xq0s94xq0s94x-removebg-preview_nowfji.png" alt="logo">
+        <form class="searchBox" action="/search"  method="post">
+            
+            <input class="searchInput" type="text" name="uName" placeholder="Search">
+          
+            <button type="submit" class="searchButton" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            </button>
+        </form>
+        
+        <div>
+            
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                    <span class="ball"></span>
+                </label>
+    
+        </div>
+        
+    </nav>
+
+    <div class="container">
+        <div class="screen">
+            <div class="screen__content">
+                <form class="login" action="/k" method="post">
+                    <h1>Log In</h1>
+                    <div class="login__field">
+                        <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="27px" height="27px" data-name="Layer 1" viewBox="0 0 128 160" x="0px" y="0px"><title>Miscellaneous 253 solid</title><path fill="#5C5696" d="M108.39789,12.96527A58.24,58.24,0,0,0,71.272,0,80.07942,80.07942,0,0,0,51.20752,2.73389a65.58016,65.58016,0,0,0-37.3349,25.54828A70.43753,70.43753,0,0,0,1.06641,72.60938c.85205,20.71869,9.73486,36.31641,26.40192,46.35944A62.45147,62.45147,0,0,0,60.15479,128h.00293a90.345,90.345,0,0,0,28.14307-4.92383,6.77154,6.77154,0,0,0,4.2915-3.55078,8.34415,8.34415,0,0,0-.26221-6.71832c-.419-1.01947-1.69238-4.122-5.41309-4.122a11.3098,11.3098,0,0,0-3.60742.70892,64.63143,64.63143,0,0,1-22.96338,3.33063c-19.8233-.67242-34.59418-11.4834-39.5127-28.91992A56.5322,56.5322,0,0,1,25.1499,40.94476a48.95627,48.95627,0,0,1,43.624-26.10736A49.63414,49.63414,0,0,1,86.123,17.9624c16.94684,6.29926,26.22473,23.64648,23.08649,43.16547-1.77295,11.02844-5.86328,17.5376-12.87109,20.48541-1.83685.7724-3.07806.79779-3.88428-.14258-1.64362-1.91895-1.71533-7.02441-1.05811-11.2334.63531-4.064,1.36572-8.19293,2.07281-12.186.9873-5.5791,2.00781-11.34766,2.79291-17.07471A6.53568,6.53568,0,0,0,94.771,35.84717c-4.14648-5.0752-15.74017-6.20361-19.19427-6.42828-.98834-.06439-1.98834-.09711-2.97223-.09711a43.21626,43.21626,0,0,0-31.52,13.36371A42.24879,42.24879,0,0,0,29.311,74.043c.48444,11.0459,5.54541,19.18359,13.88531,22.3266a22.70624,22.70624,0,0,0,8.03711,1.40631,29.72871,29.72871,0,0,0,18.708-6.9292,39.60109,39.60109,0,0,0,4.249-4.4151c3.26416,7.86279,8.37885,11.41309,16.2486,11.41309a34.172,34.172,0,0,0,6.21088-.62689,33.54658,33.54658,0,0,0,22.60162-15.08838C129.97021,65.92426,132.27338,31.97021,108.39789,12.96527ZM59.87842,76.65967A9.75686,9.75686,0,0,1,55.647,77.71289c-3.90765,0-6.44336-2.8775-6.459-7.33063-.03076-8.7998,6.79053-21.92865,19.20459-22.64935.54694-.03174,1.07813-.05133,1.6098-.05133a19.13921,19.13921,0,0,1,5.45612.7998c-.50238,1.52643-.98578,3.0249-1.46143,4.49957-1.49756,4.64691-2.91309,9.03564-4.6236,13.27972A19.22823,19.22823,0,0,1,59.87842,76.65967Z"/></svg>
+
+                        <input type="text" name="uName" class="login__input" placeholder="Username" required>
+                    </div>
+                    <div class="login__field">
+                        <svg class="svg" xmlns="http://www.w3.org/2000/svg" width="27px" height="27px" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 64 80" style="enable-background:new 0 0 64 64;" xml:space="preserve"><g><path fill="#5C5696" d="M53.3150673,28.124752H50.523613v-7.3282814c0-10.2200499-8.3037109-18.5819435-18.5237598-18.5819435   c-10.2197552,0-18.5816002,8.3618937-18.5816002,18.5819435v7.3282814h-2.7333202   c-1.5679712,0-2.8453183,1.2777386-2.8453183,2.8453178v27.9119987c0,1.6260567,1.2773471,2.9034042,2.8453183,2.9034042   h42.6301346c1.5679703,0,2.8453178-1.2773476,2.8453178-2.9034042V30.9700699   C56.1603851,29.4024906,54.8830376,28.124752,53.3150673,28.124752z M32,54.2214584   c-5.109436,0-9.2663727-4.1569366-9.2663727-9.2663689S26.890564,35.6887169,32,35.6887169   s9.2663727,4.1569366,9.2663727,9.2663727S37.109436,54.2214584,32,54.2214584z M43.3232384,28.124752H20.6767635v-7.3282814   c0-6.2133598,5.051939-11.3233843,11.3230896-11.3233843c6.2133083,0,11.3233852,5.1100245,11.3233852,11.3233843V28.124752z"/><path fill="#5C5696" d="M32,37.0125122c-4.3865795,0-7.942625,3.5560455-7.942625,7.9426231S27.6134205,52.8977127,32,52.8977127   s7.942627-3.5559959,7.942627-7.9425774S36.3865776,37.0125122,32,37.0125122z M33.5142555,45.1834526v4.7155533   c0,0.1767616-0.1432762,0.3199883-0.3199883,0.3199883h-2.3885365c-0.176712,0-0.3199863-0.1432266-0.3199863-0.3199883v-4.7155533   c-0.9955597-0.5958328-1.6138802-1.7570076-1.3998528-3.0427017c0.1978264-1.1886215,1.1373119-2.1614456,2.3200912-2.3915787   c1.8932114-0.3683548,3.5503998,1.0715637,3.5503998,2.8985405C34.9563828,43.7262535,34.3769493,44.6671143,33.5142555,45.1834526   z"/></g></svg>
+                        <input id="password" type="password" name="password" class="login__input" placeholder="Password" required>
+                        <span class="pass_icon" onclick="password_show_hide();">
+                            <svg id="show_eye" xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" version="1.0" viewBox="0 0 900.000000 900.000000" >  <g transform="translate(0.000000,900.000000) scale(0.100000,-0.100000)" fill="#5C5696" stroke="none"> <path d="M4171 7279 c-90 -4 -184 -12 -210 -18 -25 -6 -82 -15 -126 -21 -79 -9 -174 -26 -310 -54 -38 -8 -92 -20 -120 -25 -53 -11 -105 -25 -170 -46 -22 -7 -87 -27 -145 -45 -262 -80 -702 -276 -928 -412 -63 -38 -132 -78 -155 -89 -23 -12 -67 -39 -97 -61 -30 -22 -100 -72 -156 -112 -336 -240 -713 -603 -959 -921 -13 -16 -39 -50 -59 -75 -33 -43 -173 -249 -268 -395 -54 -83 -165 -312 -243 -500 -84 -203 -107 -263 -127 -325 -11 -36 -26 -80 -34 -98 -8 -18 -14 -39 -14 -46 0 -8 -7 -27 -15 -42 -8 -16 -15 -41 -15 -56 0 -15 -4 -30 -10 -33 -12 -8 -13 -117 -1 -130 5 -6 14 -26 20 -45 15 -47 83 -115 138 -140 47 -21 177 -29 187 -11 3 4 18 11 33 15 69 15 130 109 178 276 60 210 146 442 201 546 14 27 52 99 84 159 90 172 249 416 382 585 109 140 406 445 532 548 39 31 84 70 100 86 43 40 340 260 394 291 9 6 62 37 117 69 111 67 435 230 535 270 36 15 74 31 85 36 82 38 304 113 411 140 18 4 36 10 41 13 6 4 34 11 64 16 30 6 83 17 119 25 250 58 361 72 657 86 283 12 692 -8 787 -40 16 -6 45 -10 64 -10 33 0 117 -16 234 -46 32 -8 67 -14 77 -14 37 0 376 -107 521 -165 235 -93 685 -327 800 -415 19 -14 67 -47 105 -73 124 -82 379 -295 520 -434 351 -346 601 -694 841 -1173 47 -93 126 -316 179 -500 48 -167 109 -261 178 -276 15 -4 30 -11 33 -15 10 -18 140 -10 186 11 60 26 135 103 143 148 4 22 13 36 26 39 16 5 19 14 19 66 0 33 -3 57 -7 54 -10 -11 -33 14 -33 36 0 25 -86 281 -133 397 -87 213 -114 274 -201 449 -51 102 -119 228 -152 279 -85 134 -190 290 -231 342 -19 25 -47 61 -61 80 -15 19 -51 62 -79 95 -29 33 -84 96 -122 140 -75 87 -357 370 -406 406 -16 13 -46 37 -66 53 -19 17 -55 47 -80 68 -24 20 -54 44 -66 55 -12 10 -52 38 -89 63 -36 25 -81 57 -99 73 -18 15 -35 27 -39 27 -3 0 -27 15 -53 34 -70 50 -375 232 -436 260 -29 13 -110 52 -182 86 -71 34 -193 86 -270 116 -77 30 -154 61 -172 69 -17 8 -36 15 -42 15 -11 0 -182 54 -226 71 -35 13 -128 39 -180 49 -27 6 -84 17 -125 26 -147 30 -226 44 -315 54 -49 6 -103 15 -120 20 -37 11 -420 30 -570 28 -60 0 -184 -5 -274 -9z"/> <path d="M4479 5796 c-3 -3 -63 -10 -133 -16 -71 -5 -145 -14 -165 -19 -20 -5 -72 -17 -116 -27 -141 -31 -367 -125 -530 -219 -88 -50 -187 -130 -306 -247 -120 -116 -192 -207 -270 -338 -50 -83 -149 -292 -149 -313 0 -7 -4 -17 -9 -22 -5 -6 -18 -44 -30 -85 -12 -41 -26 -89 -31 -106 -6 -17 -15 -64 -21 -105 -6 -41 -14 -99 -19 -129 -11 -73 -11 -268 0 -350 19 -146 30 -215 39 -244 58 -190 86 -263 157 -405 157 -312 358 -529 675 -728 89 -56 384 -179 474 -198 17 -4 39 -10 50 -15 39 -17 242 -35 395 -35 159 0 361 19 392 36 10 5 24 9 32 9 15 0 131 35 161 49 11 6 76 33 145 62 308 128 595 373 785 669 105 163 235 486 257 640 37 256 37 401 0 660 -8 56 -54 213 -81 275 -5 11 -17 40 -27 65 -9 25 -30 73 -46 108 -15 35 -28 67 -28 71 0 25 -174 265 -263 362 -140 153 -223 223 -367 310 -260 157 -563 254 -852 273 -47 3 -93 8 -100 11 -8 3 -16 3 -19 1z"/> </g> </svg>
+                            <svg id="hide_eye" xmlns="http://www.w3.org/2000/svg" version="1.0" height="20px" width="20px" style="display: none;" viewBox="0 0 900.000000 900.000000" preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,900.000000) scale(0.100000,-0.100000)" fill="#5C5696" stroke="none">
+                                <path d="M7917 8219 c-20 -5 -59 -20 -85 -33 -37 -19 -866 -842 -3526 -3503 -1913 -1913 -3489 -3491 -3501 -3508 -51 -69 -63 -188 -29 -271 16 -39 89 -112 128 -128 83 -34 202 -22 271 29 17 13 397 390 845 840 648 650 1078 1079 1136 1134 3 3 39 -29 82 -70 262 -254 645 -449 962 -490 41 -5 99 -14 129 -19 79 -14 233 -12 347 5 54 8 120 15 146 15 26 0 49 4 52 9 3 5 23 12 43 16 38 6 199 57 238 74 72 32 238 117 282 144 150 95 353 271 433 376 14 18 36 46 49 63 95 118 216 344 269 503 70 213 78 249 94 429 14 155 -13 511 -43 568 -5 9 -12 35 -15 58 -4 22 -11 43 -15 46 -5 3 -9 14 -9 26 0 11 -6 34 -14 51 -8 18 -24 55 -36 82 -94 220 -224 420 -373 571 l-79 82 424 426 c259 261 431 426 442 426 11 0 42 -14 70 -32 137 -86 304 -198 326 -218 14 -12 72 -59 130 -103 58 -45 150 -125 205 -178 55 -53 120 -113 144 -135 23 -21 82 -84 130 -139 47 -54 111 -126 141 -160 50 -55 116 -143 241 -324 25 -36 68 -110 97 -163 28 -53 69 -126 92 -162 22 -37 40 -68 40 -70 0 -2 29 -64 64 -137 81 -173 106 -236 151 -394 20 -71 48 -160 61 -196 77 -208 310 -255 454 -92 21 25 42 58 45 75 4 18 15 32 26 35 15 4 19 15 19 54 0 32 -4 48 -12 46 -6 -1 -15 9 -19 23 -4 14 -17 57 -29 95 -12 39 -25 79 -30 90 -5 11 -23 63 -40 115 -33 99 -180 451 -232 555 -75 149 -145 276 -194 350 -113 173 -215 320 -242 349 -15 17 -43 51 -62 76 -75 99 -142 172 -335 366 -210 211 -466 430 -583 499 -9 6 -33 22 -53 38 -20 15 -40 27 -43 27 -8 0 -104 68 -133 94 -13 11 -23 24 -23 29 0 5 270 279 600 609 660 660 650 648 653 769 1 53 -3 74 -26 119 -50 99 -177 162 -280 139z"/>
+                                <path d="M4185 7275 c-121 -8 -240 -18 -265 -24 -25 -6 -71 -10 -102 -11 -31 0 -69 -5 -84 -10 -15 -6 -52 -15 -83 -20 -31 -5 -86 -16 -123 -25 -38 -8 -96 -22 -130 -29 -35 -8 -87 -22 -115 -30 -29 -9 -74 -22 -100 -30 -153 -45 -225 -70 -373 -129 -151 -60 -200 -81 -390 -169 -157 -73 -197 -94 -210 -109 -3 -3 -57 -36 -120 -74 -168 -100 -394 -256 -515 -354 -158 -128 -180 -147 -270 -231 -50 -47 -120 -112 -156 -146 -72 -67 -303 -330 -343 -390 -14 -22 -43 -64 -65 -94 -23 -30 -99 -143 -171 -250 -71 -107 -134 -202 -140 -210 -6 -8 -44 -85 -86 -170 -122 -250 -226 -522 -335 -876 -13 -44 -11 -88 6 -120 8 -16 15 -36 15 -45 0 -28 76 -104 132 -132 41 -21 68 -27 115 -27 34 0 65 4 68 10 3 5 14 10 24 10 10 0 39 16 64 35 45 34 97 122 113 192 16 67 75 263 97 318 63 157 77 188 213 455 38 75 168 291 221 368 157 226 475 579 668 739 50 41 101 85 115 97 83 73 360 271 470 336 98 58 234 135 260 147 14 6 81 38 150 71 202 97 404 177 580 230 91 28 179 52 195 55 17 2 50 9 75 15 44 11 137 30 251 52 216 42 739 63 969 40 231 -24 274 -29 318 -39 26 -5 72 -15 102 -21 30 -6 75 -15 100 -21 112 -25 83 -43 308 190 111 115 202 216 202 223 0 9 -19 18 -47 25 -79 18 -137 34 -158 43 -29 13 -216 54 -324 71 -36 6 -73 15 -82 20 -10 5 -44 9 -76 10 -32 0 -80 5 -108 10 -55 11 -260 24 -490 32 -82 3 -249 -1 -370 -8z"/>
+                                <path d="M4350 5780 c-52 -5 -117 -13 -145 -19 -27 -5 -72 -15 -100 -20 -133 -26 -239 -64 -431 -157 -147 -71 -275 -158 -388 -263 -156 -144 -215 -215 -314 -376 -50 -83 -162 -316 -162 -338 0 -7 -4 -17 -9 -22 -7 -9 -29 -77 -56 -175 -30 -110 -66 -464 -49 -480 11 -9 1871 1836 1861 1846 -11 11 -103 13 -207 4z"/>
+                                </g>
+                                </svg>
+                        </span>
+                    </div>
+                    <button class="button login__submit">
+                        <span class="button__text">Log In Now &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#5C5696" width="30px" height="30px" viewBox="-64 0 512 512"><path d="M365.52 209.85L59.22 67.01c-16.06-7.49-35.15-.54-42.64 15.52L3.01 111.61c-7.49 16.06-.54 35.15 15.52 42.64L236.96 256.1 18.49 357.99C2.47 365.46-4.46 384.5 3.01 400.52l13.52 29C24 445.54 43.04 452.47 59.06 445l306.47-142.91a32.003 32.003 0 0 0 18.48-29v-34.23c-.01-12.45-7.21-23.76-18.49-29.01z"/></svg>
+                    </button>
+                    		
+                </form>
+                <form action="/SignUp" method="get"><button id="butt">SignUp</button>	</form>	
+            </div>
+            <div class="screen__background">
+                <span class="screen__background__shape screen__background__shape4"></span>
+                <span class="screen__background__shape screen__background__shape3"></span>		
+                <span class="screen__background__shape screen__background__shape2"></span>
+                <span class="screen__background__shape screen__background__shape1"></span>
+            </div>		
+        </div>
+    </div>
+
+    <script>
+        function password_show_hide() {
+            var x = document.getElementById("password");
+            var show_eye = document.getElementById("show_eye");
+            var hide_eye = document.getElementById("hide_eye");
+            hide_eye.classList.remove("d-none");
+            if (x.type === "password") {
+                x.type = "text";
+                show_eye.style.display = "none";
+                hide_eye.style.display = "inline";
+            } else {
+                x.type = "password";
+                show_eye.style.display = "inline";
+                hide_eye.style.display = "none";
+            }
+        }
+        const checkbox = document.getElementById("checkbox")
+        checkbox.addEventListener("change", () => {
+          document.body.classList.toggle("dark")
+        })
+    </script>
+</body>
+</html>

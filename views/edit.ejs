@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+		integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="https://res.cloudinary.com/dz6owqlde/image/upload/v1714126156/image_1_wl9uoc.png" style="border-radius: 200px;" type="image/x-icon">
+    <title><%= uName %></title>
+    <style>
+        .searchBox {
+    /* position: absolute; */
+    display: flex;
+    width: 38%;
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    margin-top: 23px;
+    padding: 7px;
+}
+
+
+.searchButton {
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2f3640;
+    color : #d3d3d3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchInput {
+    border:none;
+    background: none;
+    outline:none;
+    float:left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    width: 90%;
+    padding: 0 6px;
+}
+
+
+
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background: #1d1f25;
+            color: rgb(198, 198, 198);
+            transition: background 0.2s linear;
+            font-family: sans-serif;
+        }
+        .logo{
+            height: 100px;
+            /* width: 80px; */
+        }
+        nav{
+            /* padding: 10px; */
+            display: flex;
+            font-size: 20px;
+            justify-content: space-around;
+        }
+        nav h2{
+            font-family: cursive,sans-serif;
+            filter: drop-shadow(1px 1px 5px rgb(154, 154, 154));
+        }
+        nav div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav div img{
+            height: 50px;
+            margin-left: 20px;
+            border-radius: 70px;
+        }
+        nav div h4{
+            color: white;
+            padding-left: 8px;
+            font-size: 20px;
+        }
+        li{
+            /* padding-top: 10px; */
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+        section{
+            margin-top: 60px;
+            padding: 30px;
+            text-align: center;
+
+        }
+        section img{
+            height: 200px;
+            width: 200px;
+            border-radius: 120px;
+            display: flex;
+            margin: 0 auto;
+        }
+        h4{
+            margin: 5px 5px 5px;
+            display: inline;
+            font-size: 25px;
+
+        }
+        section span{
+            margin: 20px;
+            display: flex;
+            width: 35%;
+            font-size: 30px;
+            padding: 20px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: space-around;
+        }
+        section button{
+            cursor: pointer;
+            padding: 8px 15px 8px 15px;
+            background:linear-gradient(90deg,rgb(42, 42, 42),rgb(61, 61, 61));
+            border: 2px solid rgb(77, 77, 77);
+            color: white;
+            font-family: sans-serif;
+            font-size: 17px;
+            border-radius: 8px;
+            transition: .3s ease-in-out;
+            width: 180px
+        }
+        section button:hover{
+            box-shadow: 1px 1px 15px #9d9d9d;
+        }
+        a{
+            text-decoration: none;
+        }
+        hr{
+            border: .7px solid #c3c3c3;
+            margin-left: 60px;
+            margin-right: 60px;
+        }
+        header{
+            margin-top: 5%;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 5%;
+            /* margin-left: 10%;
+            margin-right: 10%; */
+        }
+        header img{
+            display: inline;
+            height: 410px;
+            width: 31.9%;
+            border: 1px solid #1e1e1e;
+            margin: 5px 5px 0px 0px;
+            border-radius: 5px;
+        }
+        .form{
+            margin-right: 30px;
+            display: inline-block;
+            flex-direction: row;
+            width: fit-content;
+            background-color: none;
+        }
+        .form input{
+            display: none;
+        }
+        .form button{
+            background: none;
+            border: none;
+            margin-top: 10px;
+        }
+        
+        
+
+
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+
+        body.dark {
+            background: #4c5b89;
+            color:#c7c7c7;
+            border-color: white;
+            /* background-color: #596fae; */
+        } /* #9b59b6 */
+
+        body.dark h1, body.dark .support a {color: #525e81;}
+
+        .checkbox {
+        opacity: 0;
+        position: absolute;
+        }
+
+        .checkbox-label {
+        background-color: #3b4660;
+        width: 42px;
+        height: 16px;
+        border-radius: 50px;
+        border: 1px solid rgb(115, 115, 115);
+        position: relative;
+        padding: 5px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        }
+
+        .fa-moon {color: #d5c998;}
+
+        .fa-sun {color: #f39c12;}
+
+        .checkbox-label .ball {
+        background-color: #e1e1e1;
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        left: 2.5px;
+        top: 2px;
+        border-radius: 50%;
+        transition: transform 0.2s linear;
+        }
+
+        .checkbox:checked + .checkbox-label .ball {
+        transform: translateX(24px);
+        }
+
+
+
+        /* form */
+
+
+
+        @import url(https://fonts.googleapis.com/css?family=Lato:100,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Montez);
+
+
+.profile,.content{
+  -webkit-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+.profile {
+    position: absolute;
+    top: 100px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    min-height: fit-content;
+    height: auto;
+    width: 75%;
+    margin: 20px auto;
+    margin-bottom: 100px;
+    background-color: #1d1f25;
+    border-top: 3px solid #3c3c3c;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 2.5px 5px #ccc;
+}
+.content{
+  /* position: absolute; */
+  min-height: 100%;
+  height: 100%;
+  width: 95%;
+  margin: 2.5% auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  /*border: 1px solid #eee;*/
+  /*background-color: yellow;*/
+  overflow: hidden;
+}
+.short-info{
+  position: relative;
+  min-height: 100px;
+  height: auto;
+  width: 97.5%;
+  margin: 1.5% auto;
+  /*background-color: #f5f5f5;*/
+  background-color: #fff;
+  background-color: #f2ecee;
+  /*border-top: 2px solid #39cb58;*/
+  border-radius: 2.5px;
+  /*box-shadow: inset 0 -1.5px #ddd;*/
+}
+.details{
+  width: 97.5%;
+  /*background-color: red;*/
+  margin: 2.5px auto;
+}
+.tab-heads{
+  color: #777;
+  margin: 0 2.5px;
+}
+.tabs{
+  height: 200px;
+  width: 97.5%;
+  margin: 0 auto;
+  /* border-top: 2.5px solid #39cb58; */
+  background-color: #f2ecee;
+  border-radius: 2.5px;
+  /* background-color: #f3f3f3; */
+}
+span.fa-envelope{
+  position: absolute;
+  top: 22%;
+  left: 56%;
+  color: #39cb58;
+}
+span.photo{
+  position: relative;
+  height: 80px;
+  width: 80px;
+  border-radius: 5px;
+  margin: 10px 0 2.5px;
+  display: block;
+  top: 10%;
+  left: 10%;
+  overflow: hidden;
+  background-size: 100%;
+  border-radius: 100%;
+  border: 2px solid #ddd;
+}
+span.photo:after{
+  content: " Edit Profile Pic ";
+  text-align: center;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  padding: 35% 0 65%;
+  height: 0;
+  width: 100%;
+  opacity: 0;
+  color: #222;
+  background-color: rgba(0,0,0,0.25);
+  background-size: 100%;
+  transition: 0.35s ease-in-out;
+  overflow: hidden;
+  border-radius: 100%;
+}
+span.photo:hover:after{
+  bottom: 0;
+  opacity: 1;
+  color: #fff;
+}
+input[type="file"]{
+  /* position: absolute; */
+  color: #555;
+  font-size: 15px;
+  top: 25%;
+  box-shadow: none;
+  background-color: #cfd0d2;
+  width: 200px;
+  border: 0;
+}
+
+span.name,span.links > h3,h4{
+  font-family: Lato;
+  /*font-weight: 200;*/
+}
+span.name{
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  color: #555;
+  font-size: 18px;
+}
+.label{
+  color: #555;
+  line-height: 2.1em;
+  margin-left: 10px;
+}
+.label[for="avatar"]{
+  line-height: 120px;
+}
+.btn{
+  /* position: absolute; */
+  top: 45%;
+  left: 25%;
+  /* color: #fff; */
+  /* background-color: rgba(57,203,88,0.65); */
+  background-color: #ddd;
+  padding: 10px 15px;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 2px #39cb58,
+              0 2px 0 0 rgba(57,203,88,0.5);
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+span.btn:hover{
+  opacity: 1;
+  color: #fff;
+  background-color: rgba(57,203,88,1);
+  /* background-color: #39cb58; */
+}
+.profile:hover .btn{
+    opacity: 1;
+}
+.short-info span h3,h4{
+  display: inline-block;
+  margin: 0;
+}
+
+div.circles{
+  width: 100%;
+  margin: 0 auto;
+}
+span.fa-users{
+  color: #777;
+  margin-left: 1px;
+  margin: 7px 7px 2.5px;
+}
+span.fa-users:after{
+  content: "Circles";
+  font-family: Lato;
+  margin-left: 3px;
+  color: #777;
+}
+.myCircle{
+  height: 200px;
+  width: 97.5%;
+  margin: 0 auto;
+  background-color: #f2ecee;
+  border-radius: 2.5px;
+}
+
+/*Circles Styles
+=========================*/
+.myCircle #tabs ul li:nth-child(1){
+  margin: 0;
+  padding: 0px 5px 10px;
+  /*margin-top: 5px;*/
+  background-color: white;
+  border-radius: 0 0 0 30px;
+}
+.myCircle #tabs ul li:nth-child(2){
+  margin-left: -3px;
+  padding: 0 5px 10px;
+  border-radius: 0 0 30px 0;
+  background-color: white;
+}
+.myCircle #tabs .active{
+  border-bottom: none;
+  padding-left: 10px;
+}
+.myCircle #tabs{
+  padding: 0;
+  margin: 0;
+}
+.fa-twitter,.fa-facebook,.fa-github{
+  height: 20px;
+  width: 20px;
+  text-align: center;
+  line-height: 20px;
+  padding: 2.5px;
+  margin-left: -15px;
+}
+
+/*Input Fields Styles
+=========================*/
+fieldset textarea,.input{
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #333;
+  background-color: #cfd0d2;
+  box-shadow: 0 0 0 1px #00103f;
+  padding: 5px;
+  width: 75%;
+  margin: 5px auto;
+  border: 0;
+  border-radius: 2.5px;
+  outline: 0;
+  transition: 0.3s ease;
+}
+fieldset textarea{
+  min-height: 40px;
+  max-height: 60px;
+}
+fieldset textarea:hover,.input:hover{
+  box-shadow: 0 0 0 1px #39cb58;
+  background-color: #fff;
+}
+fieldset textarea:focus,.input:focus{
+  box-shadow: 0 0 0 1px #39cb58,
+              inset 0 2px 5px -1px rgba(0,0,0,0.25);
+}
+
+.grid-35{
+  width: 35%;
+  float: left;
+  font-weight: 500;
+  color: #333;
+  /* text-align: left; */
+}
+.grid-65{
+  position: relative;
+  width: 65%;
+  float: right;
+  font-family: Source Sans Pro;
+  font-weight: 300;
+  font-size: 17px;
+}
+#tabs-1 div,#tabs-2 div,#tabs-3 div{
+  border-bottom: 1px solid #ddd;
+}
+
+/*Tabs Styles
+=========================*/
+#tabs {
+  width: 97.5%;
+  margin: 0 auto;
+  position: relative;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#tabs-1,#tabs-2,#tabs-3{
+  width: 95%;
+  margin: 0 auto;
+  /*margin-top: 5px;*/
+  padding: 5px 10px;
+  line-height: 1.3em;
+  padding-bottom: 10px;
+  font-family: Open Sans;
+  background-color: #f2ecee;
+  border-radius: 0 2.5px 2.5px 2.5px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+} 
+#tabs ul{
+  margin: 0 auto;
+  padding: 0;
+}
+#tabs ul li{
+  display: inline-block;
+  margin: 0;
+  padding: 0 7px;
+  width: 65px;
+  text-align: center;
+  padding-bottom: 5px;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+     transition: all 0.5s ease;  
+}
+#tabs ul li a{
+  outline: 0;
+  text-decoration: none;
+  padding: 0 3px 0 0;
+  /* background-color: #222; */
+  font-family: Open Sans;
+  margin: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+     transition: all 0.5s ease;
+}
+
+.ui-state-hover{
+  border-bottom: 2.5px solid #aaa;
+}
+.ui-state-active{
+  color: #38cc85;
+  border-bottom: 2.5px solid #39cb58;
+}
+
+/* #CLEARFIX HACK
+=========================*/
+.clear:after{
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+/* Edit View
+======================*/
+.content h1{
+  text-align: center;
+  color: #555;
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: 200;
+  margin: 5px auto 15px auto;
+}
+select{
+  width: 80%;
+  padding: 7px 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #39cb58;
+  border-radius: 2.5px;
+  outline: 0;
+}
+select option{
+  padding: 5px;
+}
+fieldset{
+  text-align: center;
+  /* background-color: rgba(0,0,0,0.01); */
+  margin-bottom: 5px;
+  padding: 5px;
+  border: 1px solid rgb(216, 216, 216);
+  border-radius: 6px;
+}
+
+.input.Btn{
+  width: 48%;
+  float: left;
+  display: block;
+  margin: 40px auto;
+  margin-left: 1%;
+  padding: 15px 0;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  background-color: rgba(57,203,88,0.65);
+  box-shadow: inset 0 0 0 2px #39cb58,
+              0 2px 0 0 rgba(57,203,88,0.5);
+  transition: 0.5s ease;
+}
+.input.Btn:hover{
+  background-color: rgba(57,203,88,1);
+}
+.inputbtn{
+    display: block;
+    margin: 09px auto;
+    width: 130px;
+    height: 30px;
+    color: rgb(214, 214, 214);
+    font-family: sans-serif;
+    background: #000514;
+    font-size: 12px;
+    border: 2px solid rgb(60, 60, 60);
+    border-radius: 8px;
+    transition: .3s ease-in-out;
+}
+.inputbtn:hover{
+    box-shadow: 1px 1px 10px rgb(66, 166, 227);
+}
+
+
+/*Media Queries
+=========================*/
+@media only screen and (min-width: 768px){ /*Desktop*/
+  .profile{ 
+    width: 450px;
+  }
+  .search{
+    float: none;
+    /* top: 0; */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
+@media only screen and (max-width: 768px){ /*Tablet*/
+  .profile{ 
+    width: 70%;
+  }
+  .search{
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: 0 auto;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 520px){ /*Phone*/
+    .searchBox{
+        height: 30px;
+    }
+    nav div h4{
+        display: none;
+    }
+    .logo{
+        height: 90px;
+    }
+    .searchButton{
+        width: 37px;
+        height: 31px;
+    }
+  .profile{
+    width: 90%;
+  }
+}
+
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="https://res.cloudinary.com/dz6owqlde/image/upload/v1713868597/Gemini_Generated_Image_s94xq0s94xq0s94x-removebg-preview_nowfji.png" alt="logo">
+        <form class="searchBox" action="/search"  method="post">
+            
+            <input class="searchInput" type="text" name="uName" placeholder="Search">
+          
+            <button type="submit" class="searchButton" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
+            </button>
+        </form>
+        <div>
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label id="label" for="checkbox" class="checkbox-label">
+                <i class="fas fa-moon"></i>
+                <i class="fas fa-sun"></i>
+                <span class="ball"></span>
+            </label>
+    
+            <img src=<%= a.profile_picture %> alt="">
+            <h4><%= uName %></h4>
+        </div>
+    </nav>
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      
+      <div class="wrapper">
+        <div class="profile">
+          <div class="content">
+            <h1>Edit Profile</h1>
+            <form action="/edited" method="post" enctype="multipart/form-data">
+              <!-- Photo -->
+              <fieldset>
+                <div class="grid-35">
+                  <label  class="label" for="avatar">Your Photo</label>
+                </div>
+                <div class="grid-65">
+                  <span class="photo" title="Upload your Avatar!"><img class="photo" title="Upload your Avatar!" style="height: -webkit-fill-available;" src=<%= a.profile_picture %> alt=""></span>
+                  <input type="file" class="btn input" name="image" required>
+                </div>
+              </fieldset>
+
+              <fieldset>
+                <div class="grid-35">
+                  <label  class="label" for="lname">Your Name</label>
+                </div>
+                <div class="grid-65">
+                  <input class="input" type="text" id="lname" placeholder="Your Name" name="name" value="<%= a.name %>"/>
+                </div>
+              </fieldset>
+
+              <input type="text" name="uName" style="display: none;" value="<%= a.uName %>">
+
+              
+              <!-- Description about User -->
+              <fieldset>
+                <div class="grid-35">
+                  <label class="label" for="description">About you</label>
+                </div>
+                <div class="grid-65">
+                  <textarea id="" cols="30" rows="auto" placeholder="About You" name="about" value="<%= a.about %>"></textarea>
+                </div>
+              </fieldset>
+              <!-- Location -->
+              <fieldset>
+                <div class="grid-35">
+                  <label class="label"  for="location">Location</label>
+                </div>
+                <div class="grid-65">
+                  <input class="input" type="text" id="location" placeholder="Your location" name="location" value="<%= a.location %>">
+                </div>
+              </fieldset>
+              <!-- Country -->
+              <fieldset>
+                <div class="grid-35">
+                  <label  class="label" for="country">Country</label>
+                </div>
+                <div class="grid-65">
+                  <input class="input" type="text" id="country" placeholder="Your country" name="country" value="<%= a.country %>">
+                </div>
+              </fieldset>
+              <!-- Email -->
+              <fieldset>
+                <div class="grid-35">
+                  <label class="label"  for="email">Email Address</label>
+                </div>
+                <div class="grid-65">
+                  <input class="input" type="email" placeholder="Your email" id="email" name="email" value="<%= a.email %>">
+                </div>
+              </fieldset>
+              
+              <fieldset>
+                <input class="inputbtn" type="button" class="Btn cancel" value="Cancel" />
+                <input class="inputbtn" type="submit" class="Btn" value="Save Changes" />
+              </fieldset>
+      
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      
+      <!-- http://www.smashingmagazine.com/2013/08/08/release-livestyle-css-live-reload/ -->
+
+
+
+
+
+
+
+
+    
+<script>
+        const checkbox = document.getElementById("checkbox")
+        checkbox.addEventListener("change", () => {
+          document.body.classList.toggle("dark")
+        })
+
+</script>
+</body>
+</html>
