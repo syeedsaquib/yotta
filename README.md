@@ -6,5 +6,5 @@
 ![Edit profile page](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/6.png)
 ![Create post page](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/7.png)
 ![User post page-1](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/8.png)
-![User post page-2](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/7.png)
+![User post page-2](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/9.png)
 ![User post page-3](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/10.png)
