@@ -1,3 +1,10 @@
+##Technology Used
+-##Front End
+  -HTML 
+  -CSS
+  -javascript
+
+
 ![SignUp page](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/1.png)
 ![LogIn page](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/2.png)
 ![Profile page](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/3.png)
