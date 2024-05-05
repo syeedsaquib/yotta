@@ -1,8 +1,18 @@
 ## Technology Used ##
 - ## Front End ##
-  -HTML 
-  -CSS
-  -javascript
+  - HTML 
+  - CSS
+  - javascript
+  - EJS
+- ## Back End ##
+  - NodeJs 
+  - ExpressJs
+  - Mongoose(npm package)
+  - multer-storage-cloudinary(npm package)
+- ## Database ##
+  - MongoDB
+- ## Cloud Storage ##
+  - Cloudinary
 
 
 ![SignUp page](https://github.com/syeedsaquib/yotta/blob/main/Screenshot/1.png)
