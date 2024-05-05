@@ -1,5 +1,5 @@
 ##Technology Used
--##Front End
+-Front End
   -HTML 
   -CSS
   -javascript
