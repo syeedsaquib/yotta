@@ -1,4 +1,4 @@
-## Technology Used ##
+## Technology Used
 - ## Front End ##
   - HTML 
   - CSS
