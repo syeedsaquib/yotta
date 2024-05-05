@@ -1,17 +1,17 @@
 ## Technology Used
-- ## Front End
+  ## Front End
   - HTML 
   - CSS
   - javascript
   - EJS
-- ## Back End
+  ## Back End
   - NodeJs 
   - ExpressJs
   - Mongoose(npm package)
   - multer-storage-cloudinary(npm package)
-- ## Database
+  ## Database
   - MongoDB
-- ## Cloud Storage
+  ## Cloud Storage
   - Cloudinary
   - MongoDB Atlas
 
