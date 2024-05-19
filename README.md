@@ -3,10 +3,10 @@
   - HTML 
   - CSS
   - javascript
-  - EJS
   ## Back End
   - NodeJs 
   - ExpressJs
+  - EJS
   - Mongoose(npm package)
   - multer-storage-cloudinary(npm package)
   ## Database
